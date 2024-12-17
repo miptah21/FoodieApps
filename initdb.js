@@ -164,18 +164,19 @@ const dummyMeals = [
   },
 ];
 
+
 db.prepare(`
    CREATE TABLE IF NOT EXISTS meals (
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       slug TEXT NOT NULL UNIQUE,
-       title TEXT NOT NULL,
-       image TEXT NOT NULL,
-       summary TEXT NOT NULL,
-       instructions TEXT NOT NULL,
-       creator TEXT NOT NULL,
-       creator_email TEXT NOT NULL
-    )
-`).run();
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     slug TEXT NOT NULL,
+     title TEXT NOT NULL,
+     image TEXT,
+     summary TEXT,
+     instructions TEXT,
+     creator TEXT,
+     creator_email TEXT
+   )
+ `).run();
 
 async function initData() {
   const stmt = db.prepare(`
